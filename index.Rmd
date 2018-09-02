@@ -1,0 +1,30 @@
+[![Travis build status](https://travis-ci.org/JohnCoene/trianglify.svg?branch=master)](https://travis-ci.org/JohnCoene/trianglify)
+
+# trianglify
+
+```{r, include = FALSE}
+library(trianglify)
+```
+
+```{r, echo=FALSE}
+trianglify(width = "100%")
+```
+
+htmlwidget for [trianglify](http://qrohlf.com/trianglify/).
+
+## Installation
+
+``` r
+# install.packages("devtools")
+devtools::install_github("JohnCoene/trianglify")
+```
+
+## Example
+
+See the [website](https://trianglify.john-coene.com) for more.
+
+```{r}
+library(trianglify)
+
+trianglify()
+```

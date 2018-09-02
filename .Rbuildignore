@@ -1,0 +1,8 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+docs
+pkgdown
+index.Rmd
+trianglify.png
+^\.travis\.yml$
