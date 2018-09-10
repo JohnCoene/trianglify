@@ -21,17 +21,19 @@
 #' The default value is the ideal value for eliminating antialiasing artifacts when
 #' rendering patterns to a canvas.
 #' @param points A data.frame of \code{x} and \code{y} points to triangulate.
+#' @param ... Any other parameter.
 #'
 #' @import htmlwidgets
 #'
 #' @examples
-#' trianglify()
+#' if(interactive())
+#'   trianglify()
 #'
 #' @export
 trianglify <- function(width = "100%", height = NULL, elementId = NULL,
                        cell.size = NULL, variance = NULL, seed = NULL,
                        x.colors = NULL, y.colors = NULL, color.space = NULL,
-                       stroke.width = NULL, points = NULL) {
+                       stroke.width = NULL, points = NULL, ...) {
 
   # forward options using x
   x = list(
@@ -43,13 +45,14 @@ trianglify <- function(width = "100%", height = NULL, elementId = NULL,
     x_colors = x.colors,
     y_colors = y.colors,
     color_space = color.space,
-    stroke_width = stroke.width
+    stroke_width = stroke.width,
+    ...
   )
 
   x <- x[lapply(x, length) > 0]
 
   if(!is.null(points))
-    x$points <- apply(points, 1, as.list)
+    x$points <- apply(unname(points), 1, as.list)
 
   # create widget
   htmlwidgets::createWidget(
